@@ -52,6 +52,4 @@ const startRecord = async () => {
 
 
 <script>
-
-
 ```
