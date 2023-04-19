@@ -11,7 +11,7 @@
 ![图片](./picture//p1.png)
 设置好之后就可以调用了
 
-```bash
+```html
 <template>
  <Button @click="startRecord">录屏保存</Button>
 </template>
@@ -49,9 +49,9 @@ const startRecord = async () => {
             })
             mediaRecorder.start();
         }
-
-
 <script>
 
 
 ```
+
+以上代码会将整个页面录制下来，如果要实现只录制视频页面的话，可以用canvas来讲画面录制出来，参考
