@@ -50,8 +50,6 @@ const startRecord = async () => {
             mediaRecorder.start();
         }
 <script>
-
-
 ```
 
 以上代码会将整个页面录制下来，如果要实现只录制视频页面的话，可以用canvas来讲画面录制出来，参考
