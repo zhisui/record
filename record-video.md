@@ -52,4 +52,29 @@ const startRecord = async () => {
 <script>
 ```
 
-以上代码会将整个页面录制下来，如果要实现只录制视频页面的话，可以用canvas来讲画面录制出来，参考
+以上代码会将整个页面录制下来，如果要实现只录制视频页面的话，可以用 canvas 来实现,可参考[github地址](https://github.com/wendychengc/media-recorder-video-canvas/tree/master)
+
+```vue
+<script lang='ts' setup>
+const recordedChunks = ref<any>([])
+const startRecord = () => {
+    recordedChunks.value = []
+    const canvas: any = document.querySelector('canvas')
+    console.log(canvas, 'canvas')
+    const stream = canvas.captureStream(60)
+    const options = { mimeType: 'video/webm;codecs=vp9' } // 设置编码格式
+    mediaRecorder.value = new MediaRecorder(stream, options) // 初始化MediaRecorder实例
+    // 设置数据可用时的回调
+    mediaRecorder.value.ondataavailable = (event: any) => {
+        if (event.data.size > 0) {
+            // 添加数据，event.data是一个BLOB对象
+            recordedChunks.value.push(event.data)
+        }
+    }
+    mediaRecorder.value.onerror = (ev: any) => {
+        console.log(ev)
+    }
+    mediaRecorder.value.start()
+}
+<script>
+```
