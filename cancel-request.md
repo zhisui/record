@@ -9,7 +9,7 @@
 
 ### 利用 axios 的 cancelToken 取消请求
 
-axios 官方提供了两种取消请求的[方法](https://github.com/axios/axios#cancellation)，通过 AbortController 和 CancelToken，AbortController 从 v0.22.0 版本开始支持，CancelToken 从 v0.22.0 就已经废弃了，由于项目是使用的 v0.22.0 以下的 版本，故使用 CancelToken 实现，后期开新项目可能会去尝试下 AbortController。
+axios 官方提供了两种取消请求的[方法](https://github.com/axios/axios#cancellation)，通过 `AbortController` 和 `CancelToken`，AbortController 从 v0.22.0 版本开始支持，CancelToken 从 v0.22.0 就已经废弃了，由于项目是使用的 v0.22.0 以下的 版本，故使用 CancelToken 实现，后期开新项目可能会去尝试下 AbortController。
 
 CancelToken 提供了两种使用方法：
 
