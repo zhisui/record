@@ -1,4 +1,6 @@
-# 场景
+
+# 取消Axios接口请求
+## 场景
 
 取消请求主要运用于在 tab 切换和路由切换时候两种情景下：
 
@@ -7,7 +9,7 @@
     所以需要在切换 tab 的时候取消当前 tab 的请求。
 -   路由快速跳转时取消上个页面的接口请求的，否则在一些情况下接口请求时间过长会导致页面卡顿。
 
-### 利用 axios 的 cancelToken 取消请求
+## 利用 axios 的 cancelToken 取消请求
 
 axios 官方提供了两种取消请求的[方法](https://github.com/axios/axios#cancellation)，通过 AbortController 和 CancelToken，AbortController 从 v0.22.0 版本开始支持，CancelToken 从 v0.22.0 就已经废弃了，由于项目是使用的 v0.22.0 以下的 版本，故使用 CancelToken 实现，后期开新项目可能会去尝试下 AbortController。
 
@@ -70,11 +72,11 @@ cancel()
 
 由于项目中要处理多个接口，所以第二种方法比较适合。
 
-# 思路
+## 思路
 
 在 axios 请求拦截器中为需要处理的接口依次建立一个 CancelToken 实例，在回调函数里面将 cancel 函数存储在 vuex 中的一个数组里面，在页面跳转时候去依次执行这个 cancel，执行完之后将将这个数组清空，以便进行下次操作。
 
-# 实现
+## 实现
 
 store.js
 
